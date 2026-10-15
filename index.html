@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Python 切片（Slicing）</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./lessons.js" defer></script>
+  <script src="./slicing.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Python 切片（Slicing）</h1>
+    <div class="workspace">
+      <div class="visual-column">
+        <section class="panel stage" aria-labelledby="stage-title">
+          <div class="panel-heading"><h2 id="stage-title">切片觀察台</h2><span id="direction" class="badge">← 向左取值</span></div>
+          <div class="expression-bar"><code id="syntax">text[-2::-1]</code><span id="kind">兩個冒號 · 指定步長</span></div>
+          <div class="legend"><span><i class="dot origin-dot"></i>起點</span><span><i class="dot selected-dot"></i>選取範圍</span><span><i class="dot visited-dot"></i>已走過</span><span><i class="dot stop-dot"></i>stop 不包含</span></div>
+          <div class="sequence-wrap"><div class="axis-label">正索引</div><div id="cells" aria-label="字元與索引"></div><div class="axis-label">負索引 · 從右邊開始數</div></div>
+          <div class="playback"><div class="actions"><button id="play" class="primary">▶ 播放動畫</button><button id="back" aria-label="上一步">←</button><button id="next" aria-label="下一步">→</button><button id="reset">重播起點</button></div><span id="progress">已走過 0 / 0</span></div>
+          <div class="result-box" aria-live="polite"><div class="result-label"><span>切片結果</span><span id="count">0 個字元</span></div><output id="result">—</output><div class="path-label">取值順序 <span id="path">—</span></div></div>
+          <div id="explanation" class="explanation"></div><div id="triangle" class="triangle" hidden></div>
+          <details><summary>查看對應的 Python 程式碼</summary><pre id="code"></pre></details>
+        </section>
+
+      </div>
+      <aside class="panel controls" aria-labelledby="controls-title">
+        <div class="panel-heading"><h2 id="controls-title">動手試試</h2></div>
+        <label for="text">文字序列 <span>text</span></label><input id="text" value="1234567" autocomplete="off" spellcheck="false">
+        <div class="control-divider"></div>
+        <label for="expression">直接改寫語法</label><input id="expression" class="expression-input" value="text[-2::-1]" autocomplete="off" spellcheck="false" aria-describedby="error">
+        <p id="error" class="error" role="alert" hidden></p>
+        <div class="control-divider"></div>
+        <label for="mode">語法形式</label><select id="mode"><option value="0">[index]　單一索引</option><option value="1">[start:stop]　一個冒號</option><option value="2" selected>[start:stop:step]　兩個冒號</option></select>
+        <div class="fields"><div><label for="start">start <span>起點</span></label><input id="start" type="text" inputmode="numeric" value="-2" placeholder="省略" autocomplete="off"></div><div><label for="stop">stop <span>終點</span></label><input id="stop" type="text" inputmode="numeric" placeholder="省略" autocomplete="off"></div><div><label for="step">step <span>步長</span></label><input id="step" type="text" inputmode="numeric" value="-1" placeholder="預設 1" autocomplete="off"></div></div>
+      </aside>
+    </div>
+
+        <section class="panel lesson-panel" aria-labelledby="lesson-title">
+          <div class="panel-heading"><h2 id="lesson-title">寫法比較</h2><div id="lesson-tabs" class="lesson-tabs" role="group" aria-label="教學情境"></div></div>
+          <p id="lesson-description" class="lesson-description"></p>
+          <div class="table-wrap"><table><thead><tr><th scope="col">寫法</th><th scope="col">參數</th><th scope="col">結果</th><th scope="col">說明</th></tr></thead><tbody id="examples"></tbody></table></div>
+          <p class="table-note"><code>""</code> 表示空字串；索引超界會顯示錯誤。</p>
+        </section>
+  </main>
+</body>
+</html>
